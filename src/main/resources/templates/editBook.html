@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Book</title>
+    <link rel="stylesheet"  href="/css/books.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+
+    <a class="navbar-brand" href="#">Library Management System</a>
+    <a class="navbar-brand" align="center" href="#">Sign-In</a>
+
+</nav>
+<div class="container" align="center">
+    <h1>Edit Book</h1>
+    <br/>
+    <form class="books" action="#" th:action="@{/Update}" th:object="${books}" method="post">
+        <table class="table table-hover" border="1" cellpadding="10">
+            <tr>
+                <td scope="row">Book Id:</td>
+                <td><input class="form-control" type="text" th:field="*{id}"></td>
+            </tr>
+            <tr>
+                <td scope="row">Book Title:</td>
+                <td><input class="form-control"  type="text" th:field="*{title}"></td>
+            </tr>
+            <tr>
+                <td scope="row">Book Description:</td>
+                <td><input class="form-control" type="text" th:field="*{description}"></td>
+            </tr>
+            <tr>
+                <td scope="row">Book Edition:</td>
+                <td><input class="form-control" type="text" th:field="*{edition}"></td>
+            </tr>
+            <tr>
+                <td scope="row">Book Quantity:</td>
+                <td><input class="form-control" type="text" th:field="*{quantity}"></td>
+            </tr>
+            <tr>
+                <td scope="row">Book Category Id:</td>
+                <td><input class="form-control" type="text" th:field="*{category_id}"></td>
+            </tr>
+            <tr>
+                <td scope="row">Book Sub Category Id:</td>
+                <td><input class="form-control" type="text" th:field="*{sub_category_id}"></td>
+            </tr>
+            <tr>
+                <td class="edit__btn" colspan="2">
+                    <button class="btn btn-dark" type="submit">Update</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+</body>
+</html>

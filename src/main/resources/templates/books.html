@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+    <link rel="stylesheet"  href="/css/books.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+
+    <a class="navbar-brand" href="/">Library Management System</a>
+    <a class="navbar-brand" align="center" href="#">Sign-In</a>
+
+</nav>
+
+<div class="container">
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="/books">Books</a>
+        <a class="navbar-brand" href="#">Authors</a>
+        <a class="navbar-brand" href="#">Category</a>
+        <a class="navbar-brand" href="#">User</a>
+    </nav>
+    <div  class="books"  align="center">
+        <h1>Books Record</h1>
+        <a class="badge badge-primary" href="/newBook">Add a new book</a>
+        <br/><br/>
+        <table class="table table-hover"  border="1" cellpadding="10">
+            <thead>
+                <tr >
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Edition</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="books : ${booksList}">
+                    <th scope="row" th:text="${books.id}">ID</th>
+                    <td th:text="${books.title}">Title</td>
+                    <td th:text="${books.description}">Description</td>
+                    <td th:text="${books.edition}">Edition</td>
+                    <td th:text="${books.quantity}">Quantity</td>
+                    <td class="action__bar">
+                        <a class="badge badge-success" th:href="@{'/edit/' + ${books.id}}">
+                            Edit
+                        </a>
+                        &nbsp;&nbsp;&nbsp;
+                        <a class="badge badge-danger" th:href="@{'/delete/' + ${books.id}}">
+                            Delete
+                        </a>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>
